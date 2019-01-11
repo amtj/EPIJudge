@@ -7,13 +7,54 @@ import epi.test_framework.GenericTest;
 import epi.test_framework.TestFailure;
 import epi.test_framework.TimedExecutor;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
 public class LowestCommonAncestor {
   public static BinaryTreeNode<Integer> LCA(BinaryTreeNode<Integer> tree,
                                             BinaryTreeNode<Integer> node0,
                                             BinaryTreeNode<Integer> node1) {
-    // TODO - you fill in here.
-    return null;
+
+    if (tree == null) {
+      return null;
+    }
+
+    List<BinaryTreeNode<Integer>> list = new ArrayList<>();
+    find(tree, node0, list);
+    HashSet<BinaryTreeNode<Integer>> set = new HashSet<>(list);
+    list = new ArrayList<>();
+    find(tree, node1, list);
+
+    for (int i = 0; i < list.size(); i++) {
+      if (set.contains(list.get(i))) {
+        return list.get(i);
+      }
+    }
+
+    return tree;
   }
+
+  public static boolean find(BinaryTreeNode<Integer> tree,
+                          BinaryTreeNode<Integer> node,
+                          List<BinaryTreeNode<Integer>> list) {
+    if (tree == node) {
+      return true;
+    }
+    else {
+      if (tree.left != null && find(tree.left, node, list)) {
+        list.add(tree.left);
+        return true;
+      }
+      else if (tree.right != null && find(tree.right, node, list)) {
+        list.add(tree.right);
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   @EpiTest(testDataFile = "lowest_common_ancestor.tsv")
   public static int lcaWrapper(TimedExecutor executor,
                                BinaryTreeNode<Integer> tree, Integer key0,
