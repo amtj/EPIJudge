@@ -1,19 +1,21 @@
-package epi;
+package epi.binary_trees;
+
+import epi.BinaryTreeNode;
 import epi.test_framework.EpiTest;
 import epi.test_framework.GenericTest;
-import java.util.List;
-public class TreeInorder {
-  @EpiTest(testDataFile = "tree_inorder.tsv")
 
-  public static List<Integer> inorderTraversal(BinaryTreeNode<Integer> tree) {
+public class SumRootToLeaf {
+  @EpiTest(testDataFile = "sum_root_to_leaf.tsv")
+
+  public static int sumRootToLeaf(BinaryTreeNode<Integer> tree) {
     // TODO - you fill in here.
-    return null;
+    return 0;
   }
 
   public static void main(String[] args) {
     System.exit(
         GenericTest
-            .runFromAnnotations(args, "TreeInorder.java",
+            .runFromAnnotations(args, "SumRootToLeaf.java",
                                 new Object() {}.getClass().getEnclosingClass())
             .ordinal());
   }

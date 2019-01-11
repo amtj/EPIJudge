@@ -1,9 +1,12 @@
-package epi;
+package epi.binary_trees;
+
+import epi.BinaryTree;
 import epi.test_framework.BinaryTreeUtils;
 import epi.test_framework.EpiTest;
 import epi.test_framework.GenericTest;
 import epi.test_framework.TestFailure;
 import epi.test_framework.TimedExecutor;
+
 public class LowestCommonAncestorCloseAncestor {
 
   public static BinaryTree<Integer> LCA(BinaryTree<Integer> node0,

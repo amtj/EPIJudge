@@ -1,6 +1,9 @@
-package epi;
+package epi.binary_trees;
+
+import epi.BinaryTreeNode;
 import epi.test_framework.EpiTest;
 import epi.test_framework.GenericTest;
+
 public class IsTreeBalanced {
 
   @EpiTest(testDataFile = "is_tree_balanced.tsv")

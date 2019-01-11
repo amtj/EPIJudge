@@ -1,9 +1,12 @@
-package epi;
+package epi.binary_trees;
+
+import epi.BinaryTreeNode;
 import epi.test_framework.EpiTest;
 import epi.test_framework.GenericTest;
 import epi.test_framework.TimedExecutor;
 import java.util.ArrayList;
 import java.util.List;
+
 public class TreeFromPreorderWithNull {
   public static BinaryTreeNode<Integer>
   reconstructPreorder(List<Integer> preorder) {

@@ -1,8 +1,11 @@
-package epi;
+package epi.binary_trees;
+
+import epi.BinaryTree;
 import epi.test_framework.EpiTest;
 import epi.test_framework.GenericTest;
 import epi.test_framework.TestFailure;
 import epi.test_framework.TimedExecutor;
+
 public class KthNodeInTree {
   public static class BinaryTreeNode<T> {
     public T data;
