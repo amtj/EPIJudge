@@ -26,3 +26,4 @@ epi_judge_java/java_build/
 *.iml
 *.dll
 epi_judge_java/out/production/epi_judge_java/Makefile
+*.kotlin_module
