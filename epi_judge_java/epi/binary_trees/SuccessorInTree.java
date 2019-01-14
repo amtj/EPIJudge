@@ -9,9 +9,25 @@ import epi.test_framework.TimedExecutor;
 public class SuccessorInTree {
 
   public static BinaryTree<Integer> findSuccessor(BinaryTree<Integer> node) {
-    // TODO - you fill in here.
-    return null;
+
+    if (node.right != null) {
+
+      node = node.right;
+
+      while (node.left != null) {
+        node = node.left;
+      }
+
+      return node;
+    }
+
+    while (node.parent != null && node.parent.left != node) {
+      node = node.parent;
+    }
+
+    return node.parent;
   }
+
   @EpiTest(testDataFile = "successor_in_tree.tsv")
   public static int findSuccessorWrapper(TimedExecutor executor,
                                          BinaryTree<Integer> tree, int nodeIdx)
