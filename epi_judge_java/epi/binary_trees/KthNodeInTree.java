@@ -23,7 +23,23 @@ public class KthNodeInTree {
 
   public static BinaryTreeNode<Integer>
   findKthNodeBinaryTree(BinaryTreeNode<Integer> tree, int k) {
-    // TODO - you fill in here.
+    if (tree.left == null && k == 1) {
+      return tree;
+    }
+    else if (tree.left == null && tree.right != null && k > 1) {
+      return findKthNodeBinaryTree(tree.right, k - 1);
+    }
+
+    if (tree.left != null && tree.left.size + 1 == k) {
+      return tree;
+    }
+    else if (tree.left != null && tree.left.size >= k) {
+      return findKthNodeBinaryTree(tree.left, k);
+    }
+    else if (tree.left != null && tree.right != null && tree.left.size + 1 < k) {
+      return findKthNodeBinaryTree(tree.right, k - tree.left.size - 1);
+    }
+
     return null;
   }
   public static BinaryTreeNode<Integer>
